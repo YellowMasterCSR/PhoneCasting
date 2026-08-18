@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="description"
+      content="PhoneCasting - Android screen casting with scrcpy"
+    />
+
+    <link rel="stylesheet" href="/src/styles.css" />
+
+    <title>PhoneCasting</title>
+
+    <script
+      type="module"
+      src="/src/main.ts"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <div id="app">
+
+      <div class="app">
+
+        <!-- =========================
+             Header
+             ========================= -->
+
+        <header class="header">
+
+          <div class="brand">
+            <div class="brand-icon">
+              P
+            </div>
+
+            <div class="brand-name">
+              PhoneCasting
+            </div>
+          </div>
+
+          <div class="connection-status">
+            <span
+              id="status-dot"
+              class="status-dot"
+            ></span>
+
+            <span id="connection-status-text">
+              Disconnected
+            </span>
+          </div>
+
+        </header>
+
+
+        <!-- =========================
+             Main
+             ========================= -->
+
+        <main class="main">
+
+          <!-- =========================
+               Device
+               ========================= -->
+
+          <section class="card">
+
+            <div class="card-header">
+              <h2 class="card-title">
+                Device
+              </h2>
+
+              <p class="card-description">
+                Select and manage your Android device.
+              </p>
+            </div>
+
+
+            <div class="device-info">
+
+              <div class="device-icon">
+                📱
+              </div>
+
+              <div class="device-details">
+
+                <div
+                  id="device-name"
+                  class="device-name"
+                >
+                  No device detected
+                </div>
+
+                <div
+                  id="device-serial"
+                  class="device-serial"
+                >
+                  —
+                </div>
+
+                <div
+                  id="device-state"
+                  class="device-state"
+                >
+                  Not connected
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="button-row"
+              style="margin-top: 14px;"
+            >
+
+              <button
+                id="refresh-devices"
+                class="button"
+              >
+                Refresh Devices
+              </button>
+
+              <button
+                id="detect-ip"
+                class="button"
+              >
+                Detect IP
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- =========================
+               Connection
+               ========================= -->
+
+          <section class="card">
+
+            <div class="card-header">
+              <h2 class="card-title">
+                Connection
+              </h2>
+
+              <p class="card-description">
+                Choose how PhoneCasting connects to your phone.
+              </p>
+            </div>
+
+
+            <div class="connection-methods">
+
+              <button
+                id="connection-usb"
+                class="connection-method active"
+                type="button"
+              >
+
+                <div class="connection-method-title">
+                  USB
+                </div>
+
+                <div class="connection-method-description">
+                  Direct USB connection
+                </div>
+
+              </button>
+
+
+              <button
+                id="connection-wifi"
+                class="connection-method"
+                type="button"
+              >
+
+                <div class="connection-method-title">
+                  TCP/IP
+                </div>
+
+                <div class="connection-method-description">
+                  Wireless ADB connection
+                </div>
+
+              </button>
+
+            </div>
+
+
+            <div class="ip-display">
+
+              <span class="ip-label">
+                Phone IP
+              </span>
+
+              <span
+                id="device-ip"
+                class="ip-value"
+              >
+                —
+              </span>
+
+            </div>
+
+
+            <div class="button-row">
+
+              <button
+                id="connect-tcp"
+                class="button primary"
+              >
+                Connect TCP/IP
+              </button>
+
+              <button
+                id="disconnect-device"
+                class="button danger"
+              >
+                Disconnect
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- =========================
+               Casting
+               ========================= -->
+
+          <section class="card full-width">
+
+            <div class="casting-panel">
+
+              <div class="casting-info">
+
+                <h2 class="casting-title">
+                  Casting
+                </h2>
+
+                <p
+                  id="casting-description"
+                  class="casting-description"
+                >
+                  Ready to cast your Android screen.
+                </p>
+
+              </div>
+
+
+              <div class="button-row">
+
+                <button
+                  id="start-casting"
+                  class="button primary"
+                >
+                  Start Casting
+                </button>
+
+                <button
+                  id="stop-casting"
+                  class="button danger"
+                  disabled
+                >
+                  Stop Casting
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- =========================
+               Scrcpy Settings
+               ========================= -->
+
+          <section class="card full-width">
+
+            <div class="card-header">
+
+              <h2 class="card-title">
+                Scrcpy Settings
+              </h2>
+
+              <p class="card-description">
+                Configure how your Android screen is captured and displayed.
+              </p>
+
+            </div>
+
+
+            <div class="settings-placeholder">
+
+              Scrcpy settings will appear here.
+
+            </div>
+
+          </section>
+
+
+          <!-- =========================
+               Status
+               ========================= -->
+
+          <section class="card full-width">
+
+            <div class="card-header">
+
+              <h2 class="card-title">
+                Status
+              </h2>
+
+              <p class="card-description">
+                PhoneCasting activity and connection information.
+              </p>
+
+            </div>
+
+
+            <pre
+              id="status-output"
+              class="status-box"
+            >Ready.</pre>
+
+          </section>
+
+        </main>
+
+      </div>
+
+    </div>
+  </body>
+</html>
